@@ -13,19 +13,18 @@ class UserController extends Controller
             $users = [];
         } else {
             $users = [
-                'Joel','Ellie','Tess','Tommy','Bill','<script>alert("Clicker")</script>'
+                'Joel', 'Ellie', 'Tess','Tommy', 'Bill'
             ];
         }
 
-        return view('users', [
-            'users' => $users,
-            'title' => 'Listado de usuarios'
-        ]);
+        $title = "Listado de usuarios";
+
+        return view('users', compact('title', 'users'));
     }
 
     public function show($id)
     {
-        return view('show')->with('id', $id);
+        return view('users-show', compact('id'));
     }
 
     public function create()
